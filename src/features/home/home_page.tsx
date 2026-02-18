@@ -6,6 +6,26 @@ import { SideBarDictionary } from "@/src/components/sidebar/sidebar_dictionary";
 
 export function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
+  const [binaryInput, setBinaryInput] = useState("");
+
+  const translateBinary = (binary: string) => {
+    // Limpiar espacios extras
+    const cleanBinary = binary.replace(/\s+/g, " ").trim();
+
+    if (!cleanBinary) return "";
+
+    return cleanBinary
+      .split(" ")
+      .map((bin) => {
+        if (bin.length !== 8) return "";
+        const decimal = parseInt(bin, 2);
+        if (isNaN(decimal)) return "";
+        return String.fromCharCode(decimal);
+      })
+      .join("");
+  };
+
+  const translatedText = translateBinary(binaryInput);
 
   return (
     <section className="w-full h-screen bg-linear-to-br from-gray-50 to-white">
@@ -37,6 +57,8 @@ export function HomePage() {
               </h2>
 
               <textarea
+                value={binaryInput}
+                onChange={(e) => setBinaryInput(e.target.value)}
                 placeholder="Escribe aquí el código binario..."
                 className="flex-1 resize-none outline-none bg-gray-50 rounded-xl p-4 font-mono text-sm border border-gray-200 focus:ring-2 focus:ring-blue-400 transition"
               />
@@ -49,7 +71,7 @@ export function HomePage() {
               </h2>
 
               <div className="flex-1 bg-gray-50 rounded-xl p-4 border border-gray-200 text-lg">
-                Aquí aparecerá el texto traducido...
+                {translatedText || "Aquí aparecerá el texto traducido..."}
               </div>
             </div>
           </div>
