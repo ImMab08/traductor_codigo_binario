@@ -27,7 +27,7 @@ export const lettersUppercase = [
   { char: "Z", bin: "01011010" },
 ];
 
-export const textLowercase = [
+export const lettersLowercase = [
   { char: "a", bin: "01100001" },
   { char: "b", bin: "01100010" },
   { char: "c", bin: "01100011" },
