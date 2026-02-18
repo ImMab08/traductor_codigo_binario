@@ -3,7 +3,7 @@ export const renderTable = (
   data: { char: string; bin: string }[]
 ) => {
   return (
-    <table className="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+    <table className="w-full text-sm border border-gray-200 rounded-lg overflow-hidden text-black">
       <thead className="">
         <tr>
           <th className="px-3 py-2 border-b text-left">Carácter</th>

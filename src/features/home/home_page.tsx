@@ -28,7 +28,7 @@ export function HomePage() {
   const translatedText = translateBinary(binaryInput);
 
   return (
-    <section className="w-full h-screen bg-linear-to-br from-gray-50 to-white">
+    <section className="w-full h-screen bg-linear-to-br from-gray-50 to-white text-black">
       <div className="flex flex-col max-w-6xl p-6 w-full h-full mx-auto">
         {/* Header */}
         <div className="flex w-full items-center justify-between mb-10">
